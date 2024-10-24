@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Application DEV",
+            "request": "launch",
+            "mainClass": "me.dio.farmacia_2024.Application",
+            "projectName": "farmacia-2024",
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "dev"
+            }
+        },
+        {
+            "type": "java",
+            "name": "Application PROD",
+            "request": "launch",
+            "mainClass": "me.dio.farmacia_2024.Application",
+            "projectName": "farmacia-2024",
+            "env": {
+                "SPRING_PROFILES_ACTIVE": "prod"
+            }
+        }
+    ]
+}
