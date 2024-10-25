@@ -51,7 +51,7 @@ public class LoteServiceImpl implements LoteService {
         loteRepository.save(novoLote);
         estoqueRepository.save(estoque);
 
-        transacaoService.registrarTransacao(farmaceutico.getNome(), produto.getNome(), produto.getCodigoDeBarras(), quantidade, "ENTRADA");
+        transacaoService.registrarTransacao(farmaceutico, produto.getNome(), produto.getCodigoDeBarras(), quantidade, "ENTRADA");
 
         return novoLote;
     }
@@ -71,7 +71,7 @@ public class LoteServiceImpl implements LoteService {
 
         loteRepository.saveAndFlush(lote);
 
-        transacaoService.registrarTransacao(farmaceutico.getNome(), produto.getNome(), produto.getCodigoDeBarras(), quantidade, "ENTRADA");
+        transacaoService.registrarTransacao(farmaceutico, produto.getNome(), produto.getCodigoDeBarras(), quantidade, "ENTRADA");
 
     }
 
@@ -90,7 +90,7 @@ public class LoteServiceImpl implements LoteService {
 
         loteRepository.saveAndFlush(lote);
 
-        transacaoService.registrarTransacao(farmaceutico.getNome(), produto.getNome(), produto.getCodigoDeBarras(), quantidade, "SAÍDA");
+        transacaoService.registrarTransacao(farmaceutico, produto.getNome(), produto.getCodigoDeBarras(), quantidade, "SAÍDA");
     }
 
     @Override
@@ -104,7 +104,7 @@ public class LoteServiceImpl implements LoteService {
 
         loteRepository.delete(lote);
 
-        transacaoService.registrarTransacao(farmaceutico.getNome(), "","", 0, "REMOÇÃO DO LOTE");
+        transacaoService.registrarTransacao(farmaceutico, "","", 0, "REMOÇÃO DO LOTE");
 
     }
 
