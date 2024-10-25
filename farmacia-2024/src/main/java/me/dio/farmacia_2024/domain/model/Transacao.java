@@ -2,13 +2,10 @@ package me.dio.farmacia_2024.domain.model;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,16 +24,7 @@ public class Transacao {
     
     private LocalDate dataMovimentacao;
     
-    @ManyToOne(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "farmaceutico_id")
-    Farmaceutico farmaceutico;
-
-    public Farmaceutico getFarmaceutico() {
-        return farmaceutico;
-    }
-    public void setFarmaceutico(Farmaceutico farmaceutico) {
-        this.farmaceutico = farmaceutico;
-    }
+    private String nome;
 
     public String getCodigoDeBarras() {
         return codigoDeBarras;
@@ -50,7 +38,12 @@ public class Transacao {
     public void setNomeProduto(String nomeProduto) {
         this.nomeProduto = nomeProduto;
     }
-    
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
     public Long getId() {
         return id;
     }

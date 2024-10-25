@@ -31,7 +31,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 
         Produto produtoNovo = produtoRepository.save(produto);
 
-        transacaoService.registrarTransacao(farmaceutico, produtoNovo.getNome(), produtoNovo.getCodigoDeBarras(), 0, "PRODUTO NOVO");
+        transacaoService.registrarTransacao(farmaceutico.getNome(), produtoNovo.getNome(), produtoNovo.getCodigoDeBarras(), 0, "PRODUTO NOVO");
 
         return produtoNovo;
     }
@@ -43,7 +43,7 @@ public class ProdutoServiceImpl implements ProdutoService {
 
         Produto produto = validacaoService.validarProdutoPorCodigoDeBarras(codigoDeBarras);
 
-        transacaoService.registrarTransacao(farmaceutico, produto.getNome(), produto.getCodigoDeBarras(), 0, "REMOÇÃO DO PRODUTO.");
+        transacaoService.registrarTransacao(farmaceutico.getNome(), produto.getNome(), produto.getCodigoDeBarras(), 0, "REMOÇÃO DO PRODUTO.");
 
         produtoRepository.delete(produto);
 
